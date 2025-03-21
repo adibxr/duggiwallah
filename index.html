@@ -6,6 +6,7 @@
     <title>🍑🍑🍑🍑</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
         body {
             margin: 0;
@@ -25,7 +26,16 @@
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
             animation: fadeIn 2s ease-in-out;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
         }
 
         @keyframes fadeIn {
@@ -74,10 +84,58 @@
         .icon:hover {
             transform: scale(1.1);
         }
+
+        /* Password Screen */
+        #password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        #password-input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            width: 200px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        #password-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background: peachpuff;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        #password-button:hover {
+            background: #ffdab9;
+        }
     </style>
 </head>
 <body>
+    <div id="password-screen">
+        <h2>This Website is Secure By CCID Team Contact For Password.</h2>
+        <input type="text" id="password-input" placeholder="Enter answer">
+        <button id="password-button" onclick="checkPassword()">Submit</button>
+    </div>
+
     <header>
+        <img src="logo.png" alt="Logo" class="logo">
         <h1>🏖️ Welcome 🍑</h1>
     </header>
     <div id="particles-js"></div>
@@ -92,6 +150,17 @@
             </div>
         </div>
     </main>
+    <script>
+        function checkPassword() {
+            const answer = "duggi"; // Change this to your secret answer
+            const userInput = document.getElementById("password-input").value;
+            if (userInput.toLowerCase() === answer.toLowerCase()) {
+                document.getElementById("password-screen").style.display = "none";
+            } else {
+                alert("Wrong answer! Try again.");
+            }
+        }
+    </script>
     <script src="particles.min.js"></script>
     <script src="particles-config.js"></script>
 </body>
